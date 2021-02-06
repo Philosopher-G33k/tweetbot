@@ -1,0 +1,16 @@
+Planned functionality
+
+
+Near term:
+
+1. Twitter integration
+2. Set list of topics
+3. Retweet tweets tagged with that topic every 30 mins
+4. Read data from hackernews, based on ame topics of interest list
+5. Shorten url of these topics and tweet every hour
+
+Long term:
+
+1. follow back users who followed you
+2. check list of followers if somebody unfollows you, unfollow them back (will have to chekc feasibility)
+3. read tweets addressed to account and reply back based on NLP (use GPT 3 or some middleware from amazom/google)
