@@ -10,6 +10,7 @@ class HNManager:
     def filterstories(self, story):
         for interest in self.interests:
             if interest.lower() in story.title.lower():
+                print("story : accepted: " + story.title)
                 return True
         return False
 
