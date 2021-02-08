@@ -1,10 +1,12 @@
-import bitly_api
+import bitlyshortener
 
 class URLShortner:
     def __init__(self):
-        pass
+        self.tokens_pool = ['e317bc806d59face4dfae11bf7ca6b0d2c42fd08']
 
-    def shorten(self,url):
-        bitly = bitly_api.Connection("ishan13", "e317bc806d59face4dfae11bf7ca6b0d2c42fd08")
-        shortenedurl = bitly.shorten('http://google.com/')
-        return shortenedurl
+    def shorten(self, url):
+        shortener = bitlyshortener.Shortener(tokens=self.tokens_pool, max_cache_size=256)
+        shortenedurl = shortener.shorten_urls([url])
+        return shortenedurl[0]
+
+
