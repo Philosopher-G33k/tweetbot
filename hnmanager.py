@@ -1,5 +1,6 @@
 from hackernews import hn
 import json
+import random
 
 class HNManager:
     def __init__(self):
@@ -24,7 +25,12 @@ class HNManager:
     def getstory(self):
         # Get length of list
         # Generate random number based on length of
-        pass
+        rand = random.randint(0, len(self.bestnews))
+        if rand not in self.previousshownnews:
+            self.previousshownnews.append(rand)
+            return self.bestnews[rand]
+        else:
+            self.getstory()
     
     def fillinterestsdata(self):
         f = open("interests.json")

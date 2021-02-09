@@ -9,6 +9,8 @@ def main():
     hn = HNManager()
     hn.fillinterestsdata()
     hn.fetchbestnews()
+    news = hn.getstory()
+    print(URLShortner().shorten(news.url))
 
 
 if __name__ == '__main__':
