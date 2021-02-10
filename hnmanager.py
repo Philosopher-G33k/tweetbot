@@ -1,6 +1,7 @@
 from hackernews import hn
 import json
 import random
+from urlshortner import URLShortner
 
 class HNManager:
     def __init__(self):
@@ -28,7 +29,17 @@ class HNManager:
         rand = random.randint(0, len(self.bestnews))
         if rand not in self.previousshownnews:
             self.previousshownnews.append(rand)
-            return self.bestnews[rand]
+            tweet = self.bestnews[rand].title
+            url = URLShortner().shorten(self.bestnews[rand].url)
+            tweet = tweet + "\n" + url
+
+            for interest in self.interests:
+                print(interest)
+                if interest.lower() in self.bestnews[rand].title.lower():
+                    tweet = tweet + " #" + interest
+
+            tweet = tweet + " #programmer #developer #geek"
+            return tweet
         else:
             self.getstory()
     
