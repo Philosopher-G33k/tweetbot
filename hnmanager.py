@@ -26,15 +26,22 @@ class HNManager:
     def getstory(self):
         # Get length of list
         # Generate random number based on length of
-        rand = random.randint(0, len(self.bestnews))
+        rand = random.randint(0, len(self.bestnews)-1)
+        print("Total news : ")
+        print(self.bestnews)
+        print(len(self.bestnews))
         if rand not in self.previousshownnews:
             self.previousshownnews.append(rand)
-            tweet = self.bestnews[rand].title
-            url = URLShortner().shorten(self.bestnews[rand].url)
+            print("random index : ")
+            print(rand)
+            try:
+                tweet = self.bestnews[rand].title
+                url = URLShortner().shorten(self.bestnews[rand].url)
+            except:
+                return None
             tweet = tweet + "\n" + url
 
             for interest in self.interests:
-                print(interest)
                 if interest.lower() in self.bestnews[rand].title.lower():
                     tweet = tweet + " #" + interest
 
