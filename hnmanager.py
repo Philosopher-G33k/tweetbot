@@ -31,21 +31,20 @@ class HNManager:
         print(self.bestnews)
         print(len(self.bestnews))
         if rand not in self.previousshownnews:
-            self.previousshownnews.append(rand)
-            print("random index : ")
-            print(rand)
             try:
                 tweet = self.bestnews[rand].title
                 url = URLShortner().shorten(self.bestnews[rand].url)
             except:
-                return None
+                self.getstory()
             tweet = tweet + "\n" + url
-
             for interest in self.interests:
                 if interest.lower() in self.bestnews[rand].title.lower():
                     tweet = tweet + " #" + interest
 
             tweet = tweet + " #programmer #developer #geek"
+            self.previousshownnews.append(rand)
+            print("random index : ")
+            print(rand)
             return tweet
         else:
             self.getstory()
