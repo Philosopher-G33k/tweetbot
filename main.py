@@ -8,12 +8,12 @@ tm = TwitterManager()
 
 def main():
     hn.fillinterestsdata()
-    # schedule.every().day.at("07:00").do(fetchnews)
     fetchnews()
-    schedule.every(1).minutes.do(getnews)
+    schedule.every().day.at("07:00").do(fetchnews)
+    schedule.every(1).hours.do(getnews)
     while True:
         schedule.run_pending()
-        time.sleep(60)
+        time.sleep(300)
 
 
 def fetchnews():
