@@ -1,5 +1,25 @@
-Planned functionality
+Whats is tweetbot?
+Just another configurable twitter bot written in Python
 
+Why was it created?
+Due to workpressure and general lethargy, tweeting may start to feel more like a chore.
+Tweetbot was created to take this burden away from you, this is a configurable bot which allows you to specify a list of topic which interests you.
+Then the bot reaches out to "HackerNews" to fetch the top news, filter out the topics of interests and tweet them out, even creating appropriate "Hashtags" to be attached.
+The bot also uses url shortening service provided by Bitly to make sure the tweet remains under the specified character limit on twitter.
+
+Limitations:
+- Currently only news source available is HackerNews, and is tightly integrated in the codebase.
+- News is fetched once a day, is configurable.
+- Can only tweet on your account, integration of stream for active listening of your twitter feed is not available.
+
+How to use?
+
+- Prerequisits:
+  - Python 3.x (tested on python 3.7.x and 3.9)
+  - Pip for installation of third party libraries
+  - Third party packages like hackernews, bitlyshortner, scheduler etc
+  - Virtualenv (I use virtualenv wrapper personally)
+- Clone the repo
 
 Near term:
 
