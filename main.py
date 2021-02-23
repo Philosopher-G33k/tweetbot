@@ -22,8 +22,11 @@ def fetchnews():
 
 def getnews():
     news = hn.getstory()
-    print("getnews :" + news)
-    tm.tweet(news)
+    if news is not None:
+        print("getnews :" + news)
+        tm.tweet(news)
+    else:
+        print("Something went wrong, tweet was not created")
 
 
 if __name__ == '__main__':
