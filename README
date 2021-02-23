@@ -18,19 +18,21 @@ How to use?
   - Python 3.x (tested on python 3.7.x and 3.9)
   - Pip for installation of third party libraries
   - Third party packages like hackernews, bitlyshortner, scheduler etc
-  - Virtualenv (I use virtualenv wrapper personally)
-- Clone the repo
+  - Virtualenv (optional) (I use virtualenv wrapper personally)
+  - Developer account for Bitly
+  - Twitter dev API token and secrets
 
-Near term:
+- Get up and running:
+    - Clone the repo
+    - install required packages using the following command pip3 install -r requirements.txt
+    - create a .env file at project root diretory
+    - Add the following lines
+        TWITTER_CONSUMER_KEY=<key>
+        TWITTER_CONSUMER_SECRET=<secret>
+        TWITTER_ACCESS_TOKEN=<token>
+        TWITTER_ACCESS_TOKEN_SECRET=<token secret>
+    - Replace values with your credentials from twitter dev portal
+    - to run the code, from projects root directory on terminal:
+        python main.py
 
-1. Twitter integration
-2. Set list of topics
-3. Retweet tweets tagged with that topic every 30 mins
-4. Read data from hackernews, based on ame topics of interest list
-5. Shorten url of these topics and tweet every hour
 
-Long term:
-
-1. follow back users who followed you
-2. check list of followers if somebody unfollows you, unfollow them back (will have to chekc feasibility)
-3. read tweets addressed to account and reply back based on NLP (use GPT 3 or some middleware from amazom/google)
