@@ -10,7 +10,7 @@ def main():
     hn.fillinterestsdata()
     fetchnews()
     schedule.every().day.at("07:00").do(fetchnews)
-    schedule.every(1).hours.do(getnews)
+    schedule.every(1).minutes.do(getnews)
     while True:
         schedule.run_pending()
         time.sleep(300)
