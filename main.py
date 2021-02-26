@@ -19,7 +19,7 @@ def fetchnews():
         hn.fetchbestnews()
         schedule.clear()
         schedule.every().day.at("07:00").do(fetchnews)
-        schedule.every(1).minutes.do(getnews)
+        schedule.every(1).hours.do(getnews)
     except:
         print("Fetching failed")
         fetchnews()
