@@ -9,15 +9,20 @@ tm = TwitterManager()
 def main():
     hn.fillinterestsdata()
     fetchnews()
-    schedule.every().day.at("07:00").do(fetchnews)
-    schedule.every(1).hours.do(getnews)
     while True:
         schedule.run_pending()
         time.sleep(300)
 
 
 def fetchnews():
-    hn.fetchbestnews()
+    try:
+        hn.fetchbestnews()
+        schedule.clear()
+        schedule.every().day.at("07:00").do(fetchnews)
+        schedule.every(1).hours.do(getnews)
+    except:
+        print("Fetching failed")
+        fetchnews()
 
 
 def getnews():
